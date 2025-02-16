@@ -11,25 +11,24 @@ public class Main {
     public static void main(String[] args) {
         
         // Create DAO Objects
-        
         DAOFactory daoFactory = new DAOFactory("coursedb");
         
         RegistrationDAO registrationDao = daoFactory.getRegistrationDAO();
         SectionDAO sectionDao = daoFactory.getSectionDAO();
         StudentDAO studentDao = daoFactory.getStudentDAO();
         
-        int studentid = daoFactory.getStudentDAO().find(USERNAME);
+        int studentid = studentDao.find(USERNAME);
         int termID = 202430; // Example termID for Fall 2024
         int crn = 67890; // Example CRN for testing
+        
         // Test Connection
-        
-        if ( !daoFactory.isClosed() ) {
-            
+        if (!daoFactory.isClosed()) {
             System.out.println("Connected Successfully!"); 
-        }else {
+        } else {
             System.out.println("Connection Failed!");
-            return;
-        
+            return; // Move return statement inside else block
+        }
+
         // **Test find() Method in SectionDAO**
         System.out.println("\nSearching for Course Sections...");
         String sections = sectionDao.find("CS", "310", termID);
@@ -58,5 +57,4 @@ public class Main {
         // Close DAO Factory
         daoFactory.close();
     }
-    
 }
