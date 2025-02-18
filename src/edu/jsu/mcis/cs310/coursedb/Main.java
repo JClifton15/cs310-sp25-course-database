@@ -1,8 +1,8 @@
 package edu.jsu.mcis.cs310.coursedb;
 
-import org.json.simple.JsonArray;
-import org.json.simple.JsonObject;
-import org.json.simple.Jsoner;
+import com.github.cliftonlabs.json_simple.JsonArray;
+import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsoner;
 import edu.jsu.mcis.cs310.coursedb.dao.*;
 
 public class Main {
